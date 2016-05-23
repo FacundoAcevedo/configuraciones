@@ -96,12 +96,12 @@ bindsym $mod+a focus parent
 bindsym $mod+1 workspace 1:Personal
 bindsym $mod+2 workspace 2:Emails
 bindsym $mod+3 workspace 3:w0rk!
-bindsym $mod+4 workspace 4
-bindsym $mod+5 workspace 5
-bindsym $mod+6 workspace 6
-bindsym $mod+7 workspace 7
-bindsym $mod+8 workspace 8
-bindsym $mod+9 workspace 9
+bindsym $mod+4 workspace 4:4
+bindsym $mod+5 workspace 5:5
+bindsym $mod+6 workspace 6:6
+bindsym $mod+7 workspace 7:7
+bindsym $mod+8 workspace 8:8
+bindsym $mod+9 workspace 9:9
 bindsym $mod+0 workspace 10:Logs
 
 # move focused container to workspace
