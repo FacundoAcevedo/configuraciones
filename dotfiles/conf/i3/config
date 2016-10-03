@@ -32,7 +32,8 @@ font xft: Hack Regular 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+#bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec st -e tmux
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -177,11 +178,12 @@ bar {
 
 # Inicio de aplicaciones
 
-exec nm-applet
-exec volumeicon
-exec owncloud
+exec --no-startup-id nm-applet
+exec --no-startup-id volumeicon
+exec --no-startup-id owncloud
+exec --no-startup-id usbguard-applet-qt
 
-exec --no-startup-id feh --bg-scale ~/Imágenes/wallpaper.jpg
+exec --no-startup-id feh --randomize --bg-scale ~/Imágenes/Wallpapers/*
 
 #
 # DPMS
