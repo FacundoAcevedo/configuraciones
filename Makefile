@@ -26,7 +26,7 @@ absorb:
 	#i3
 	install -m 0600  $(prefix_conf)/i3/* $(dotfiles)/conf/i3/
 	# Scripts
-	install -m 0700 $(prefix_app)/* $(scripts)
+	install -m 0700 $(prefix_app)/* $(scripts)/bin/
 
 
 .PHONY: install absorb
