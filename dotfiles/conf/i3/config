@@ -179,20 +179,13 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightne
 bindsym XF86TouchpadToggle exec ~/local/bin//toggletouchpad.sh # toggle touchpad
 
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-bar {
-        status_command i3status -c ~/.config/i3/i3status.conf
-        strip_workspace_numbers yes
-}
-
 
 # Inicio de aplicaciones
 
 exec --no-startup-id nm-applet
-exec --no-startup-id volumeicon
 exec --no-startup-id owncloud
 exec --no-startup-id usbguard-applet-qt
+exec --no-startup-id sleep 2 && volumeicon
 
 exec --no-startup-id feh --randomize --bg-scale ~/Imágenes/Wallpapers/*
 
@@ -215,4 +208,40 @@ assign [class="^Thunderbird$"] 2:Emails
 
 # Focus
 focus_follows_mouse no
+
+
+#PPEARANCE {{{
+# colors
+# Material Design colors
+set $border-color #LALALA
+set $bg-color #212121
+set $inac-bg-color #212121
+set $active-bg-color #3d513d
+set $text-color #FFFFFF
+set $inac-text-color #FFFFFF
+set $urgent-bg-color #3E50B4
+set $indi-color #FF3F80
+set $urgent-text-color #FFFFFF
+
+# title bar colors
+#                         border            background        text                indicator     decoration_border
+client.focused            $bg-color         $active-bg-color         $text-color         $indi-color   $border-color
+client.unfocused          $bg-color         $inac-bg-color    $inac-text-color    $indi-color   $border-color
+client.focused_inactive   $bg-color         $inac-bg-color    $inac-text-color    $indi-color   $border-color
+client.urgent             $urgent-bg-color  $urgent-bg-color  $text-color         $indi-color   $border-color
+
+# Start i3bar to display a workspace bar (plus the system information i3status
+# finds out, if available)
+bar {
+        status_command i3status -c ~/.config/i3/i3status.conf
+        strip_workspace_numbers yes
+        colors {
+            background $bg-color
+            separator $inac-text-color
+            #                  border            background        text
+            focused_workspace  $border-color     $active-bg-color  $text-color
+            inactive_workspace $border-color     $inac-bg-color    $inac-text-color
+            urgent_workspace   $urgent-bg-color  $urgent-bg-color  $text-color
+	}
+}
 
