@@ -98,6 +98,13 @@ export GPG_TTY
 # Refresh gpg-agent tty in case user switches into an X session
 gpg-connect-agent updatestartuptty /bye >/dev/null
 
+# Renombrar automaticamente el titulo de tmux, cuando levantamos un screen
+case "$TERM" in
+    screen*)
+        PROMPT_COMMAND="printf '\033k$(hostname)\033\\';"${PROMPT_COMMAND}
+        ;;
+esac
+
 if [ -f ~/.bash_profile ]; then
     source ~/.bash_profile
 fi
