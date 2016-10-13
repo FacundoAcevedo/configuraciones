@@ -46,10 +46,10 @@ bindsym $mod+d exec dmenu_run
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+ntilde focus right
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -58,10 +58,10 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+ntilde move right
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
@@ -70,10 +70,10 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+h split h
+bindsym $mod+- split h
 
 # split in vertical orientation
-bindsym $mod+v split v
+bindsym $mod+| split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -94,30 +94,36 @@ bindsym $mod+a focus parent
 
 # focus the child container
 #bindsym $mod+d focus child
+#
+# Workspaces names
+set $tag1 "1:web"
+set $tag2 "2:email"
+set $tag3 "3:cli"
+set $tag10 "10:logs"
 
 # switch to workspace
-bindsym $mod+1 workspace 1:Personal
-bindsym $mod+2 workspace 2:Emails
-bindsym $mod+3 workspace 3:w0rk!
+bindsym $mod+1 workspace $tag1
+bindsym $mod+2 workspace $tag2
+bindsym $mod+3 workspace $tag3
 bindsym $mod+4 workspace 4:4
 bindsym $mod+5 workspace 5:5
 bindsym $mod+6 workspace 6:6
 bindsym $mod+7 workspace 7:7
 bindsym $mod+8 workspace 8:8
 bindsym $mod+9 workspace 9:9
-bindsym $mod+0 workspace 10:Logs
+bindsym $mod+0 workspace $tag10
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace 1:Personal
-bindsym $mod+Shift+2 move container to workspace 2:Emails
-bindsym $mod+Shift+3 move container to workspace 3:w0rk!
+bindsym $mod+Shift+1 move container to workspace $tag1
+bindsym $mod+Shift+2 move container to workspace $tag2
+bindsym $mod+Shift+3 move container to workspace $tag3
 bindsym $mod+Shift+4 move container to workspace 4:4
 bindsym $mod+Shift+5 move container to workspace 5:5
 bindsym $mod+Shift+6 move container to workspace 6:6
 bindsym $mod+Shift+7 move container to workspace 7:7
 bindsym $mod+Shift+8 move container to workspace 8:8
 bindsym $mod+Shift+9 move container to workspace 9:9
-bindsym $mod+Shift+0 move container to workspace 10:Logs
+bindsym $mod+Shift+0 move container to workspace $tag10
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
