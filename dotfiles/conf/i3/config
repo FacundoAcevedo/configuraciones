@@ -205,6 +205,9 @@ exec --no-startup-id feh --randomize --bg-scale ~/Imágenes/Wallpapers/*
 # DPMS
 exec --no-startup-id xset dpms  600
 
+# Logs
+exec --no-startup-id i3-msg "workspace $tag10; st -e tmux -c 'journalctl -f | ccze -A'"
+
 client.focused #0088CC #0088CC #ffffff #dddddd
 client.focused_inactive #333333 #333333 #888888 #292d2e
 client.unfocused #333333 #333333 #888888 #292d2e
