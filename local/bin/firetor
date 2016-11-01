@@ -1,1 +1,1 @@
-firejail firefox -P tor
+firefox -P tor

@@ -1,1 +1,1 @@
-firejail firefox -P default
+firefox -P default

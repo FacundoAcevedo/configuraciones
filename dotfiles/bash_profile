@@ -9,6 +9,14 @@ eval "$(rbenv init -)"
 #Arreglamos el funcionamiento del del en st
 tput smkx
 
+# Renombrar automaticamente el titulo de tmux, cuando levantamos un screen
+case "$TERM" in
+    screen*)
+        PROMPT_COMMAND="printf '\033k$(whoami)@$(hostname -a)\033\\';"${PROMPT_COMMAND}
+        ;;
+esac
+
+
 #Le damos amor y color a man
 man() {
     env LESS_TERMCAP_mb=$(printf "\e[1;31m") \
