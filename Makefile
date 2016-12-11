@@ -28,5 +28,9 @@ absorb:
 	# Scripts
 	install -m 0700 $(prefix_app)/* $(scripts)/bin/
 
+dependencies:
+	# Chequeamos las dependencias
+	apps="pasystray xlock feh usbguard owncloud"
 
-.PHONY: install absorb
+
+.PHONY: install absorb dependencies

@@ -201,11 +201,13 @@ exec --no-startup-id pasystray
 
 exec --no-startup-id feh --randomize --bg-scale ~/Imágenes/Wallpapers/*
 
-#
 # DPMS
+
 exec --no-startup-id xset dpms  600
+
 # lock
-xautolock -time 10 -locker locker &
+
+exec xautolock -time 10 -locker locker
 
 # Logs
 exec --no-startup-id i3-msg "workspace $tag10; st -e tmux -c 'journalctl -f | ccze -A'"
