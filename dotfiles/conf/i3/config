@@ -207,7 +207,7 @@ exec --no-startup-id xset dpms  600
 
 # lock
 
-exec xautolock -time 10 -locker locker
+exec xautolock -time 10 -locker locker -notify 10 -notifier "notify-send 'Bloqueando'" -corners ---- -cornerdelay 10 -cornerredelay 10 &
 
 # Logs
 exec --no-startup-id i3-msg "workspace $tag10; st -e tmux -c 'journalctl -f | ccze -A'"
