@@ -1,1 +1,1 @@
-firejail thunderbird -P tor
+thunderbird -P tor
