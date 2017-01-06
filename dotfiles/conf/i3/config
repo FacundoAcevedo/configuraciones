@@ -197,13 +197,17 @@ bindsym XF86TouchpadToggle exec ~/local/bin//toggletouchpad.sh # toggle touchpad
 exec --no-startup-id nm-applet
 exec --no-startup-id owncloud
 exec --no-startup-id usbguard-applet-qt
-exec --no-startup-id sleep 2 && volumeicon
+exec --no-startup-id pasystray
 
 exec --no-startup-id feh --randomize --bg-scale ~/Imágenes/Wallpapers/*
 
-#
 # DPMS
+
 exec --no-startup-id xset dpms  600
+
+# lock
+
+exec xautolock -time 10 -locker locker -notify 10 -notifier "notify-send 'Bloqueando'" -corners ---- -cornerdelay 10 -cornerredelay 10 &
 
 # Logs
 exec --no-startup-id i3-msg "workspace $tag10; st -e tmux -c 'journalctl -f | ccze -A'"
