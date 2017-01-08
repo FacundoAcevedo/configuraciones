@@ -108,4 +108,7 @@ esac
 if [ -f ~/.bash_profile ]; then
     source ~/.bash_profile
 fi
+
+function clima { curl wttr.in/BuenosAires,argentina; }
 # vim:ts=4:sw=4
+
