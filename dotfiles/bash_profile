@@ -1,31 +1,8 @@
-PS1="\[\033[0;37m\]\342\224\214\342\224\200\$([[ \$? != 0 ]] && echo \"[\[\033[0;31m\]\342\234\227\[\033[0;37m\]]\342\224\200\")[$(if [[ ${EUID} == 0 ]]; then echo '\[\033[0;31m\]\h'; else echo '\[\033[0;33m\]\u\[\033[0;37m\]@\[\033[0;96m\]\h'; fi)\[\033[0;37m\]]\342\224\200[\[\033[0;32m\]\w\[\033[0;37m\]]\n\[\033[0;37m\]\342\224\224\342\224\200\342\224\200\342\225\274 \[\033[0m\]"
+#
+# ~/.bash_profile
+#
 
-alias mount="mount | column -t"
+[[ -f ~/.bashrc ]] && . ~/.bashrc
 
-PATH=$PATH:~/local/bin/:~/.rbenv/bin:
-eval "$(rbenv init -)"
-
-
-#Arreglamos el funcionamiento del del en st
-tput smkx
-
-# Renombrar automaticamente el titulo de tmux, cuando levantamos un screen
-case "$TERM" in
-    screen*)
-        PROMPT_COMMAND="printf '\033k$(whoami)@$(hostname -a)\033\\';"${PROMPT_COMMAND}
-        ;;
-esac
-
-
-#Le damos amor y color a man
-man() {
-    env LESS_TERMCAP_mb=$(printf "\e[1;31m") \
-        LESS_TERMCAP_md=$(printf "\e[1;31m") \
-        LESS_TERMCAP_me=$(printf "\e[0m") \
-        LESS_TERMCAP_se=$(printf "\e[0m") \
-        LESS_TERMCAP_so=$(printf "\e[1;44;33m") \
-        LESS_TERMCAP_ue=$(printf "\e[0m") \
-        LESS_TERMCAP_us=$(printf "\e[1;32m") \
-        man "$@"
-}
-
+#export PATH="$HOME/.rbenv/bin:$PATH"
+#eval "$(rbenv init -)"
