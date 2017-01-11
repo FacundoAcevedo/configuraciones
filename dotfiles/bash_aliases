@@ -1,0 +1,20 @@
+#
+# .bash_aliases
+#
+alias mount="mount | column -t"
+
+alias feh="feh -ZFd --action1=\"echo '%f' >>borrar.log\" --action2=\"echo '%f' >>fave.log\" --action3=\"feh -ZF '%f' &\""
+
+alias ls="ls --color=always"
+alias ll="ls -hl"
+alias la="ls -ha"
+
+alias mv="mv -nv"
+alias rm="rm -vI"
+alias cp="cp -nv"
+
+
+alias sudo='sudo '
+
+
+alias grep='grep --exclude-dir=.git'
