@@ -141,23 +141,6 @@ is_git() {
   git rev-parse --abbrev-ref HEAD 2>/dev/null | sed -e 's/^/± /' -e 's/$/ /'
 }
 
-function is_timed() {
-  if tail -n1 ~/.timed | grep -q -- "- $"; then
-    timed |
-    grep -vE "since|to now" |
-    tr -d "\n" |
-    tr -d "=" |
-    tr -d ">" |
-    tr -s " "
-  fi
-}
-
-function is_ti() {
-  if ti status &>/dev/null; then
-    ti status | sed "s/^.*been //g"
-  fi
-}
-
 # ~ratio between things to do and days left in year~
 # ratio between things to do and days passed
 rel_f() {
@@ -173,7 +156,15 @@ is_writable() {
   test -w . || echo "x "
 }
 
-PS1="\$(is_writable)\[${BYellow}\]\$(is_git)\[${BBlue}\]\w\[${Color_Off}\] "
+i_am_root() {
+  #chequeamos si somos root
+  if [ ${UID} -eq 0 ]; then
+      echo "[!] "
+  fi
+}
+
+
+PS1="\[${BRed}\]\$(i_am_root)\$(is_writable)\[${BYellow}\]\$(is_git)\[${BBlue}\]\w\[${Color_Off}\] "
 
 # Colores!
 	if [ "$TERM" = "linux" ]; then
@@ -215,7 +206,10 @@ export EDITOR=vim
 export PARINIT="rTbgqR B=.,?_A_a Q=_s>|"
 
 wlinks() {
-  wget -nv -O - $@ | /usr/bin/grep -o "\(https\?://\|magnet:\)[^\"']\+" | sed "s/<[^>]\+>//g"
+  wget -nv -O - $@ |
+  /usr/bin/grep -o "\(https\?://\|magnet:\)[^\"']\+" |
+  sed "s/<[^>]\+>//g" |
+  sort -c
 }
 
 links() {
@@ -229,7 +223,7 @@ clip() {
         if [ "$l" = "stop" ]; then break; fi
 
         if [ "$l" != "$o" ]; then
-            echo $l
+            echo "$l"
 
             o="$l"
         fi

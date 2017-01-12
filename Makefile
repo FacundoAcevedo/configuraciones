@@ -39,7 +39,7 @@ install-root:
 
 dependencies:
 	# Chequeamos las dependencias
-	apps="pasystray xlock feh usbguard owncloud"
+	apps="pasystray xlock feh usbguard owncloud xsel"
 
 
 .PHONY: install-root  install absorb dependencies
