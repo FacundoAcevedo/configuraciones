@@ -4,6 +4,13 @@ prefix_conf=~/.config/
 dotfiles=./dotfiles/
 scripts=./local/
 
+
+seguridad=gnupg2 pinentry-gtk usbguard
+entorno=pasystray xautolock i3
+aplicaciones=feh owncloud thunderbird firefox
+terminal=xsel tmux vim sudo bindfs encfs
+
+
 install:
 	# Configuraciones en directorio de usuario
 	install -m 0600 $(dotfiles)/bash_profile ~/.bash_profile
@@ -37,9 +44,9 @@ install-root:
 	sudo install -m 0600 -o root -g root $(dotfiles)/bashrc /root/.bashrc
 	sudo install -m 0600 -o root -g root $(dotfiles)/tmux.conf /root/.tmux.conf
 
-dependencies:
+dependencias:
 	# Chequeamos las dependencias
-	apps="pasystray xlock feh usbguard owncloud xsel"
+	sudo dnf install -y $(seguridad) $(entorno) $(aplicaciones) $(terminal)
 
 
-.PHONY: install-root  install absorb dependencies
+.PHONY: install-root  install absorb dependencias
