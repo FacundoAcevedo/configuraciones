@@ -18,6 +18,7 @@ pip=python-otr
 
 install:
 	# Configuraciones en directorio de usuario
+	mkdir -p $(prefix_app) $(prefix_conf)/i3
 	install -m 0600 $(dotfiles)/bash_profile ~/.bash_profile
 	install -m 0600 $(dotfiles)/bash_aliases ~/.bash_aliases
 	install -m 0600 $(dotfiles)/bashrc ~/.bashrc
@@ -30,7 +31,7 @@ install:
 	install -m 0700 $(scripts)/bin/* $(prefix_app)
 
 absorb:
-	mkdir -p $(dotfiles) $(scripts)
+	mkdir -p $(dotfiles) $(scripts)/bin/ ~/.conf/i3/
 	# Configuraciones en directorio de usuario
 	install -m 0600 ~/.bash_profile $(dotfiles)/bash_profile
 	install -m 0600 ~/.bash_aliases $(dotfiles)/bash_aliases
