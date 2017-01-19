@@ -6,9 +6,14 @@ scripts=./local/
 
 
 seguridad=gnupg2 pinentry-gtk usbguard
-entorno=pasystray xautolock i3
-aplicaciones=feh owncloud thunderbird firefox
-terminal=xsel tmux vim sudo bindfs encfs
+entorno=pasystray xautolock i3 i3lock feh NetworkManager-openvpn-gnome system-config-printer scrot
+aplicaciones=feh owncloud-client thunderbird firefox ImageMagick keepassx evince
+terminal=xsel tmux vim sudo bindfs encfs wget ccze tor socat weechat
+st-dependencias=xorg-x11-proto-devel
+
+miscelaneo=/usr/lib/rpm/redhat/redhat-hardened-cc1 python-develmpc python2-gmpy2 gmpy
+
+pip=python-otr
 
 
 install:
@@ -46,7 +51,8 @@ install-root:
 
 dependencias:
 	# Chequeamos las dependencias
-	sudo dnf install -y $(seguridad) $(entorno) $(aplicaciones) $(terminal)
+	sudo dnf install -y $(seguridad) $(entorno) $(aplicaciones) $(terminal) $(st-dependencias) $(miscelaneo)
+	sudo pip install $(pip)
 
 
 .PHONY: install-root  install absorb dependencias
