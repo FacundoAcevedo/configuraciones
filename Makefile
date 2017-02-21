@@ -11,9 +11,9 @@ aplicaciones=feh owncloud-client thunderbird firefox ImageMagick keepassx evince
 terminal=xsel tmux vim sudo bindfs encfs wget ccze tor socat weechat google-droid-sans-mono-fonts.noarch
 st-dependencias=xorg-x11-proto-devel
 
-miscelaneo=/usr/lib/rpm/redhat/redhat-hardened-cc1 python-develmpc python2-gmpy2 gmpy openssl-devel ipython
+miscelaneo=/usr/lib/rpm/redhat/redhat-hardened-cc1 python-devel mpc python2-gmpy2 gmpy openssl-devel ipython
 
-pip=python-otr
+pip=python-potr
 
 
 install:
