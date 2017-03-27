@@ -6,9 +6,11 @@ scripts=./local/
 
 
 seguridad=gnupg2 pinentry-gtk usbguard
-entorno=pasystray xautolock i3
+entorno=xorg xorg-server i3 pasystray xautolock dmenu xf86-video-fbdev xf86-video-intel
+servicios=networkmanager openssh
 aplicaciones=feh owncloud thunderbird firefox
-terminal=xsel tmux vim sudo bindfs encfs
+terminal=xsel tmux vim sudo bindfs encfs git wget
+fuentes=cairo libdatrie libxft pango docbook-xml libxslt docbook-xsl
 
 
 install:
@@ -47,7 +49,7 @@ install-root:
 
 dependencias:
 	# Chequeamos las dependencias
-	sudo dnf install -y $(seguridad) $(entorno) $(aplicaciones) $(terminal)
+	sudo pacman -S $(seguridad) $(entorno) $(aplicaciones) $(terminal)
 
 
 .PHONY: install-root  install absorb dependencias
