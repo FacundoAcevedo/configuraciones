@@ -1,0 +1,17 @@
+[user]
+	name = Facundo Acevedo
+	email = facevedo@openmailbox.org
+
+[alias]
+    pull = git pull --verify-signatures
+[push]
+	default = simple
+
+[merge]
+    conflictstyle = diff3
+
+[status]
+    showUntrackedFiles = all
+[transfer]
+    sckobjects = true
+
