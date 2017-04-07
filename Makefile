@@ -23,6 +23,7 @@ install:
 	install -m 0600 $(dotfiles)/bash_aliases ~/.bash_aliases
 	install -m 0600 $(dotfiles)/bashrc ~/.bashrc
 	install -m 0600 $(dotfiles)/tmux.conf ~/.tmux.conf
+	install -m 0600 $(dotfiles)/gitconfig ~/.gitconfig
 	## Configuraciones dentro de conf
 	#i3
 	install -m 0600  $(dotfiles)/conf/i3/* $(prefix_conf)/i3/
@@ -37,6 +38,7 @@ absorb:
 	install -m 0600 ~/.bash_aliases $(dotfiles)/bash_aliases
 	install -m 0600 ~/.bashrc $(dotfiles)/bashrc
 	install -m 0600 ~/.tmux.conf $(dotfiles)/tmux.conf
+	install -m 0600 ~/.gitconfig $(dotfiles)/gitconfig
 	## Configuraciones dentro de conf
 	#i3
 	install -m 0600  $(prefix_conf)/i3/* $(dotfiles)/conf/i3/
