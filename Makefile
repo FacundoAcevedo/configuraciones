@@ -6,7 +6,7 @@ scripts=./local/
 
 
 seguridad=gnupg2 pinentry-gtk usbguard
-entorno=pasystray xautolock i3
+entorno=pasystray xautolock i3 redshift-gtk
 aplicaciones=feh owncloud thunderbird firefox
 terminal=xsel tmux vim sudo bindfs encfs
 
