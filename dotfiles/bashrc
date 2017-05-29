@@ -280,3 +280,15 @@ bind '"\e[A":history-search-backward'
 bind '"\e[B":history-search-forward'
 
 function clima { curl wttr.in/BuenosAires,argentina; }
+
+merge_pdf() {
+    output="${1}"
+    shift
+
+    gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -sOutputFile="${output}" "${@}"
+}
+
+# extrae un rpm en el directorio actual
+extract_rpm() {
+    rpm2cpio "${1}" | cpio -idmv
+}

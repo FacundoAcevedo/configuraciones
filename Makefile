@@ -6,9 +6,14 @@ scripts=./local/
 
 
 seguridad=gnupg2 pinentry-gtk usbguard
-entorno=pasystray xautolock i3 redshift-gtk
-aplicaciones=feh owncloud thunderbird firefox
-terminal=xsel tmux vim sudo bindfs encfs
+entorno=pasystray xautolock i3 i3lock feh NetworkManager-openvpn-gnome system-config-printer scrot redshift-gtk
+aplicaciones=feh owncloud-client thunderbird firefox ImageMagick keepassx evince
+terminal=xsel tmux vim sudo bindfs encfs wget ccze tor socat weechat google-droid-sans-mono-fonts.noarch
+st-dependencias=xorg-x11-proto-devel
+
+miscelaneo=/usr/lib/rpm/redhat/redhat-hardened-cc1 python-devel mpc python2-gmpy2 gmpy openssl-devel ipython
+
+pip=python-potr
 
 
 install:
@@ -18,6 +23,7 @@ install:
 	install -m 0600 $(dotfiles)/bash_aliases ~/.bash_aliases
 	install -m 0600 $(dotfiles)/bashrc ~/.bashrc
 	install -m 0600 $(dotfiles)/tmux.conf ~/.tmux.conf
+	install -m 0600 $(dotfiles)/gitconfig ~/.gitconfig
 	## Configuraciones dentro de conf
 	#i3
 	install -m 0600  $(dotfiles)/conf/i3/* $(prefix_conf)/i3/
@@ -32,6 +38,7 @@ absorb:
 	install -m 0600 ~/.bash_aliases $(dotfiles)/bash_aliases
 	install -m 0600 ~/.bashrc $(dotfiles)/bashrc
 	install -m 0600 ~/.tmux.conf $(dotfiles)/tmux.conf
+	install -m 0600 ~/.gitconfig $(dotfiles)/gitconfig
 	## Configuraciones dentro de conf
 	#i3
 	install -m 0600  $(prefix_conf)/i3/* $(dotfiles)/conf/i3/
@@ -47,7 +54,8 @@ install-root:
 
 dependencias:
 	# Chequeamos las dependencias
-	sudo dnf install -y $(seguridad) $(entorno) $(aplicaciones) $(terminal)
+	sudo dnf install -y $(seguridad) $(entorno) $(aplicaciones) $(terminal) $(st-dependencias) $(miscelaneo)
+	sudo pip install $(pip)
 
 
 .PHONY: install-root  install absorb dependencias
