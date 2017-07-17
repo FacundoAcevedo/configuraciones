@@ -7,9 +7,9 @@ scripts=./local/
 
 seguridad=gnupg2 pinentry-gtk usbguard
 entorno=pasystray xautolock i3 i3lock feh NetworkManager-openvpn-gnome system-config-printer scrot redshift-gtk
-aplicaciones=feh owncloud-client thunderbird firefox ImageMagick keepassx evince
+aplicaciones=feh owncloud-client thunderbird firefox ImageMagick keepassx evince tig git telegram-desktop
 terminal=xsel tmux vim sudo bindfs encfs wget ccze tor socat weechat google-droid-sans-mono-fonts.noarch
-st-dependencias=xorg-x11-proto-devel
+st-dependencias=xorg-x11-proto-devel libX11-devel libXft-devel
 
 miscelaneo=/usr/lib/rpm/redhat/redhat-hardened-cc1 python-devel mpc python2-gmpy2 gmpy openssl-devel ipython
 
