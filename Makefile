@@ -31,6 +31,8 @@ install:
 	# Scripts
 	install -m 0700 $(scripts)/bin/* $(prefix_app)
 
+	pip install --user $(pip)
+
 absorb:
 	mkdir -p $(dotfiles) $(scripts)/bin/ ~/.conf/i3/
 	# Configuraciones en directorio de usuario
@@ -55,7 +57,6 @@ install-root:
 dependencias:
 	# Chequeamos las dependencias
 	sudo dnf install -y $(seguridad) $(entorno) $(aplicaciones) $(terminal) $(st-dependencias) $(miscelaneo)
-	sudo pip install $(pip)
 
 
 .PHONY: install-root  install absorb dependencias
