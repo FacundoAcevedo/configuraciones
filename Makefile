@@ -5,7 +5,7 @@ dotfiles=./dotfiles/
 scripts=./local/
 
 
-seguridad=gnupg2 pinentry-gtk usbguard
+seguridad=gnupg2 pinentry-gtk usbguard pidgin-otr
 entorno=pasystray xautolock i3 i3lock feh NetworkManager-openvpn-gnome system-config-printer scrot redshift-gtk
 aplicaciones=feh owncloud-client thunderbird firefox ImageMagick keepassx evince tig git telegram-desktop calibre torbrowser-launcher
 terminal=xsel tmux vim sudo bindfs encfs wget ccze tor socat weechat google-droid-sans-mono-fonts.noarch
