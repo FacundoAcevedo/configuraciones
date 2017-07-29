@@ -5,7 +5,7 @@ dotfiles=./dotfiles/
 scripts=./local/
 
 
-seguridad=gnupg2 pinentry-gtk usbguard pidgin-otr
+seguridad=gnupg2 pinentry-gtk pidgin-otr  usbguard usbguard-applet-qt
 entorno=pasystray xautolock i3 i3lock feh NetworkManager-openvpn-gnome system-config-printer scrot redshift-gtk
 aplicaciones=feh owncloud-client thunderbird firefox ImageMagick keepassx evince tig git telegram-desktop calibre torbrowser-launcher
 terminal=xsel tmux vim sudo bindfs encfs wget ccze tor socat weechat google-droid-sans-mono-fonts.noarch
@@ -31,7 +31,6 @@ install:
 	# Scripts
 	install -m 0700 $(scripts)/bin/* $(prefix_app)
 
-	pip install --user $(pip)
 
 absorb:
 	mkdir -p $(dotfiles) $(scripts)/bin/ ~/.conf/i3/
@@ -56,6 +55,7 @@ install-root:
 
 dependencias:
 	# Chequeamos las dependencias
+	pip install --user $(pip)
 	sudo dnf install -y $(seguridad) $(entorno) $(aplicaciones) $(terminal) $(st-dependencias) $(miscelaneo)
 
 
