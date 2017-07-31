@@ -1,0 +1,18 @@
+# Este playbook ejecuta las tareas necesarias para poner a punto una instalacion
+# nueva de Fedora
+#
+# Se tiene en cuenta que se usa el spin de XFCE
+#
+
+# Uso sudo ansible-playbook setup.yml -f 10
+
+---
+- hosts: localhost
+  user: root
+  vars_files:
+      - variables/sistema.yml
+
+
+  tasks:
+      - include: tasks/rpmfusion.yml
+      - include: tasks/paquetes.yml

@@ -1,0 +1,22 @@
+# Instala los paquetes necesarios para el sistema
+#
+---
+
+- name: instala los paquetes necesarios via pip
+  pip: name={{ item }}
+       extra_args=--user
+       state=present
+  with_items:
+        - python-potr
+  become: yes
+  become_user: facu
+
+- name: instala los paquetes de seguridad
+  yum: name={{ item }}
+       state=present
+  with_items:
+      - gnupg2
+      - pinentry-gtk
+      - pidgin-otr
+      - usbguard
+      - usbguard-applet-qt
