@@ -14,5 +14,11 @@
 
 
   tasks:
+      - include: tasks/disable_ipv6.yml
       - include: tasks/rpmfusion.yml
       - include: tasks/paquetes.yml
+      - include: tasks/postfix.yml
+
+      # Estos deben ir ultimos
+      - include: tasks/chkrootkit.yml
+      - include: tasks/rkhunter.yml
