@@ -16,4 +16,9 @@
 
 - name: deshabilitando dhcpv6-client en el firewall
   command: /usr/bin/firewall-cmd --permanent --remove-service dhcpv6-client
+  #firewalld:
+      #service: dhcpv6-client
+      #state: disabled
+      #permanent: true
+      #inmediate: yes
 
