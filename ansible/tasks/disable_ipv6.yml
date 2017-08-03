@@ -1,0 +1,19 @@
+## Deshabilita IPV6
+#
+---
+
+- name: Deshabilitando IPv6 para todo
+  sysctl:
+    name: net.ipv6.conf.all.disable_ipv6
+    value: 1
+    state: present
+
+- name: Deshabilitando IPv6 como opcion por defecto
+  sysctl:
+    name: net.ipv6.conf.default.disable_ipv6
+    value: 1
+    state: present
+
+- name: deshabilitando dhcpv6-client en el firewall
+  command: /usr/bin/firewall-cmd --permanent --remove-service dhcpv6-client
+

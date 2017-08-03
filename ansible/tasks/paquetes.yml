@@ -12,7 +12,7 @@
   become_user: facu
 
 - name: instala los paquetes de seguridad
-  yum: name={{ item }}
+  dnf: name={{ item }}
        state=present
   with_items:
       - gnupg2
@@ -20,3 +20,76 @@
       - pidgin-otr
       - usbguard
       - usbguard-applet-qt
+      - rkhunter
+      - chkrootkit
+      - unhide
+
+- name: instala los paquetes de entorno
+  dnf: name={{ item }}
+       state=present
+  with_items:
+      - pasystray
+      - xautolock
+      - i3
+      - i3lock
+      - feh
+      - NetworkManager-openvpn-gnome
+      - system-config-printer
+      - scrot
+      - redshift-gtk
+
+- name: instala los paquetes de aplicaciones
+  dnf: name={{ item }}
+       state=present
+  with_items:
+      - feh
+      - owncloud-client
+      - thunderbird
+      - firefox
+      - ImageMagick
+      - keepassx
+      - evince
+      - tig
+      - git
+      - telegram-desktop
+      - calibre
+      - torbrowser-launcher
+
+- name: instala los paquetes de terminal
+  dnf: name={{ item }}
+       state=present
+  with_items:
+      - xsel
+      - tmux
+      - vim
+      - sudo
+      - bindfs
+      - encfs
+      - wget
+      - ccze
+      - tor
+      - socat
+      - weechat
+      - sendmail
+      - postfix
+      - google-droid-sans-mono-fonts.noarch
+
+- name: instala los paquetes de dependencias de st
+  dnf: name={{ item }}
+       state=present
+  with_items:
+      - xorg-x11-proto-devel
+      - libX11-devel
+      - libXft-devel
+
+- name: instala los paquetes de dependencias miscelaneo
+  dnf: name={{ item }}
+       state=present
+  with_items:
+      - /usr/lib/rpm/redhat/redhat-hardened-cc1
+      - python-devel
+      - mpc
+      - python2-gmpy2
+      - gmpy
+      - openssl-devel
+      - ipython

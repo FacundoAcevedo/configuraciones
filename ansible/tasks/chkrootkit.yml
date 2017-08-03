@@ -1,0 +1,10 @@
+# Configura chkrootkit
+
+---
+
+- name: cronjob para chkrootkit
+  copy:
+    src: chkrootkit_cron.sh
+    dest: "/etc/cron.daily/chkrootkit"
+    mode: 0744
+

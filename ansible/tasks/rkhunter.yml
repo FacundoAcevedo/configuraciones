@@ -1,0 +1,25 @@
+# Configura rkhunter
+
+---
+
+- name: instalar configuracion de rkhunter
+  template:
+    src: rkhunter.conf.j2
+    dest: /etc/rkhunter.conf
+    mode: 0640
+    owner: root
+    group: root
+    force: yes
+    backup: yes
+
+- name: validar configuracion de rkhunter
+  command: rkhunter --check-config
+
+- name: cronjob para rkhunter
+  copy:
+    src: rkhunter_cron.sh
+    dest: "/etc/cron.daily/rkhunter"
+    mode: 0744
+
+- name: generar base de datos para rkhunter
+  command: rkhunter --propupd

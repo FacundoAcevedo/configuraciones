@@ -1,0 +1,33 @@
+#Habilito la recepcion local de mails
+
+---
+- name: hostname en postfix
+  lineinfile:
+    path: /etc/postfix/main.cf
+    regexp: '^myhostname = '
+    line: 'myhostname = {{ ansible_hostname }}'
+
+- name: configurar solo interfaz de loopback en postfix
+  lineinfile:
+    path: /etc/postfix/main.cf
+    regexp: '^inet_interfaces = '
+    line: 'inet_interfaces = loopback-only'
+
+- name: configurar confianza solo para localhost en postfix
+  lineinfile:
+    path: /etc/postfix/main.cf
+    regexp: '^mynetworks_style = '
+    line: 'mynetworks_style = host'
+
+- name: configurar solo IPv4 en postfix
+  lineinfile:
+    path: /etc/postfix/main.cf
+    regexp: '^inet_protocols = '
+    line: 'inet_protocols = ipv4'
+
+- name: iniciar postfix
+  systemd:
+      name: postfix
+      enabled: yes
+      state: restarted
+
