@@ -1,0 +1,28 @@
+# laburamos los servicios de systemd
+#
+---
+
+- systemd: state=started name=tor enabled=true
+- systemd: state=started name=crond enabled=true
+- systemd: state=started name=postfix enabled=true
+
+# para que bootee a la velocidad de la luz!
+- name: deshabilitando servicios innecesarios
+  systemd:
+    name: {{ item }}
+    state: stoped
+    enabled: false
+    daemon_reload: yes
+    masked: yes
+  with_item:
+      - iscsi
+      - rpcbind
+      - plymouth-quit-wait
+      - plymouth-read-write
+      - plymouth-start
+      - bluetooth
+      - livesys
+      - livesys-late
+
+
+
