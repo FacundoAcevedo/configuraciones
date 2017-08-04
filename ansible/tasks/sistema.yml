@@ -1,0 +1,9 @@
+# configuraciones a lo que es sistema
+
+---
+- name: "evita login sin password"
+  replace:
+    dest: /etc/pam.d/system-auth
+    regexp: 'nullok\s*'
+    replace: ''
+
