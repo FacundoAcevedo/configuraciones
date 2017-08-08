@@ -1,9 +1,14 @@
 # configuraciones a lo que es sistema
 
 ---
-- name: "evita login sin password"
+- name: evita login sin password
   replace:
     dest: /etc/pam.d/system-auth
     regexp: 'nullok\s*'
     replace: ''
 
+- name: aleatorizar mac en NetworkManager
+  copy:
+    src: random-mac.conf
+    dest: "/etc/NetworkManager/conf.d/"
+    mode: 0644

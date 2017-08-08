@@ -23,6 +23,7 @@
       - rkhunter
       - chkrootkit
       - unhide
+      - scap-workbench
 
 - name: instala los paquetes de entorno
   dnf: name={{ item }}

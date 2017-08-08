@@ -19,6 +19,7 @@
       - include: tasks/paquetes.yml
       - include: tasks/postfix.yml
       - include: tasks/servicios.yml
+      - include: tasks/sistema.yml
 
       # Estos deben ir ultimos
       - include: tasks/chkrootkit.yml
