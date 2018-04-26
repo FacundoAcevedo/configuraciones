@@ -55,8 +55,8 @@ install-root:
 
 dependencias:
 	# Chequeamos las dependencias
-	pip install --user $(pip)
 	sudo dnf install -y $(seguridad) $(entorno) $(aplicaciones) $(terminal) $(st-dependencias) $(miscelaneo)
+	pip install --user $(pip)
 
 
 .PHONY: install-root  install absorb dependencias
