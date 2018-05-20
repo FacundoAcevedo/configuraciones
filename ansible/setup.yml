@@ -1,5 +1,0 @@
-- hosts: localhost
-  vars: vars/main.yml
-  roles:
-	- role: zaxos.rkhunter-ansible-role
-    - role: dev-sec.os-hardening

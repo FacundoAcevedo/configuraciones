@@ -1,0 +1,32 @@
+---
+# vars file for configuracion
+- packages:
+  gnupg2 
+  usbguard
+  xautolock
+  i3
+  feh
+  openvpn
+  scrot
+  redshift-gtk
+  owncloud-client
+  thunderbird
+  firefox
+  keepassxc
+  git
+  tig
+  telegram-desktop
+  calibre
+  xsel
+  tmux
+  vim
+  sudo
+  bindfs
+  ccze
+  tor
+  socat
+  weechat
+  libx11-dev
+  xorg-dev
+  
+  

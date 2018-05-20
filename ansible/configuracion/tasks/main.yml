@@ -1,0 +1,9 @@
+---
+# tasks file for configuracion
+- include: debian.yml
+  when: ansible_os_family == 'Debian'
+  tags: package
+
+- include: fedora.yml
+  when: ansible_os_family == 'Fedora'
+  tags: package
